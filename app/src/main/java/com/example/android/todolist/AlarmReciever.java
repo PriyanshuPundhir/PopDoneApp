@@ -32,10 +32,11 @@ public class AlarmReciever extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
-        String mobileNumber=intent.getStringExtra("number");
-        //Log.d("mobileNumber",mobileNumber);
-        String description=intent.getStringExtra("desc");
-        String name = intent.getStringExtra("Name2");
+        String mobileNumber=AddTaskActivity.mobileNumberGlobal;
+        String description=AddTaskActivity.descrptionGlobal;
+        String name1=AddTaskActivity.Name1Global;
+        String name2=AddTaskActivity.Name2Global;
+        Log.d("onreceivemobileNumber",mobileNumber+"");
 //        NotificationCompat.Builder b = new NotificationCompat.Builder(context, "CHANNEL_ID")
 //                .setSmallIcon(R.drawable.priority_circle)
 //                .setContentTitle("Show It")
@@ -59,7 +60,7 @@ public class AlarmReciever extends BroadcastReceiver
                 .setSmallIcon(R.drawable.white)
                 .setLargeIcon(largeIcon(context))
                 .setContentTitle("Reminder")
-                .setContentText("Please return back "+description+" to "+name)
+                .setContentText("Take "+description+"from"+name2)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
@@ -71,7 +72,7 @@ public class AlarmReciever extends BroadcastReceiver
         notificationManager.notify(WATER_REMINDER_NOTIFICATION_ID, notificationBuilder.build());
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(mobileNumber, null, "Please Return "+description+" to "+name, null, null);
+            smsManager.sendTextMessage(mobileNumber, null, "Please Return "+description+" to "+name1, null, null);
 
             Toast.makeText(context, "try", Toast.LENGTH_SHORT).show();
 
