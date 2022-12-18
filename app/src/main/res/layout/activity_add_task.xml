@@ -35,6 +35,7 @@
         android:gravity="start"
         android:hint="@string/Name2"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+
     <EditText
         android:id="@+id/editTextMobNo"
         android:layout_width="match_parent"
@@ -42,6 +43,7 @@
         android:gravity="start"
         android:hint="@string/Mobile_number"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+
     <EditText
         android:id="@+id/editTextTime"
         android:layout_width="match_parent"
