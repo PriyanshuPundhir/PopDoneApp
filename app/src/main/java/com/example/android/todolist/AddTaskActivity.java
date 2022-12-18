@@ -138,7 +138,10 @@ public class AddTaskActivity extends AppCompatActivity {
         if (task == null) {
             return;
         }
-
+        mNumber.setText(task.getMobileNo());
+        mHour.setText(Integer.toString(task.getTime()));
+        mName1.setText(task.getName1());
+        mName2.setText(task.getName2());
         mEditText.setText(task.getDescription());
         setPriorityInViews(task.getPriority());
     }
@@ -189,7 +192,7 @@ public class AddTaskActivity extends AppCompatActivity {
         alarmIntent.putExtra("desc",description);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 100*hourNotification;
+        int interval = 200;
         manager.set(AlarmManager.RTC_WAKEUP, interval, pendingIntent);
         timer.schedule(obj, newDate);
 

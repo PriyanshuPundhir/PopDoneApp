@@ -91,6 +91,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.taskDescriptionView.setText(description);
         holder.updatedAtView.setText(updatedAt);
 
+
         // Programmatically set the text and color for the priority TextView
         String priorityString = "" + priority; // converts int to String
         holder.priorityView.setText(priorityString);
