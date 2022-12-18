@@ -19,7 +19,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:hint="@string/edit_task_description"
+        android:hint="@string/Product_details"
+        android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <EditText
+        android:id="@+id/editTextName1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/Name1"
+        android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <EditText
+        android:id="@+id/editTextName2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/Name2"
+        android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <EditText
+        android:id="@+id/editTextMobNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/Mobile_number"
+        android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:hint="@string/Time"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
 
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->

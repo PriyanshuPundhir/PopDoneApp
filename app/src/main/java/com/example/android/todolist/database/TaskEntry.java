@@ -14,21 +14,42 @@ public class TaskEntry {
     private int id;
     private String description;
     private int priority;
+
+    @ColumnInfo(name = "Mobile_Number")
+    private String mobileNo;
+    @ColumnInfo(name = "Name1")
+    private String name1;
+    @ColumnInfo(name = "Name2")
+    private String name2;
+    @ColumnInfo(name = "Product_Description")
+    private String product;
+    @ColumnInfo(name = "Time")
+    private int time;
+
     @ColumnInfo(name = "updated_at")
     private Date updatedAt;
 
     @Ignore
-    public TaskEntry(String description, int priority, Date updatedAt) {
+    public TaskEntry(String description,String name1,String name2,String mobileNo,int time, int priority, Date updatedAt) {
         this.description = description;
         this.priority = priority;
         this.updatedAt = updatedAt;
+        this.name1 = name1;
+        this.name2 = name2;
+        this.mobileNo = mobileNo;
+        this.time = time;
     }
 
-    public TaskEntry(int id, String description, int priority, Date updatedAt) {
+    public TaskEntry(int id, String description,String name1,String name2,String mobileNo,int time,
+                     int priority, Date updatedAt) {
         this.id = id;
         this.description = description;
         this.priority = priority;
         this.updatedAt = updatedAt;
+        this.name1 = name1;
+        this.name2 = name2;
+        this.mobileNo = mobileNo;
+        this.time = time;
     }
 
     public int getId() {
@@ -61,5 +82,45 @@ public class TaskEntry {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
