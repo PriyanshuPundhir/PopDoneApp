@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Toast;
 
 public class AlarmReciever extends BroadcastReceiver
@@ -13,10 +14,11 @@ public class AlarmReciever extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         String mobileNumber=intent.getStringExtra("number");
+        Log.d("mobileNumber",mobileNumber);
         String description=intent.getStringExtra("desc");
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(mobileNumber, null, "Please Return the"+description, null, null);
+            smsManager.sendTextMessage(mobileNumber, null, "Please Return the", null, null);
             Toast.makeText(context, "try", Toast.LENGTH_SHORT).show();
 
         } catch (Exception ex) {

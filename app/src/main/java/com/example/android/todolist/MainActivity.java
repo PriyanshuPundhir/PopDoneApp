@@ -16,12 +16,16 @@
 
 package com.example.android.todolist;
 
+import android.Manifest;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +33,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.android.todolist.database.AppDatabase;
 import com.example.android.todolist.database.TaskEntry;
@@ -52,6 +57,12 @@ public class MainActivity extends AppCompatActivity implements TaskAdapter.ItemC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.SEND_SMS}, 100);
+        }
+        else {
+            Toast.makeText(MainActivity.this, "Permission already granted", Toast.LENGTH_SHORT).show();
+        }
 
         // Set the RecyclerView to its corresponding view
         mRecyclerView = findViewById(R.id.recyclerViewTasks);

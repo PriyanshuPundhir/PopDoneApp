@@ -116,7 +116,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private void initViews() {
         mEditText = findViewById(R.id.editTextTaskDescription);
         mRadioGroup = findViewById(R.id.radioGroup);
-        mNumber=findViewById(R.id.editTextTime);
+        mNumber=findViewById(R.id.editTextMobNo);
         mHour=findViewById(R.id.editTextMobNo);
         mButton = findViewById(R.id.saveButton);
         mName1=findViewById(R.id.editTextName1);
@@ -189,7 +189,7 @@ public class AddTaskActivity extends AppCompatActivity {
         alarmIntent.putExtra("desc",description);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000;
+        int interval = 200;
         manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
         timer.schedule(obj, newDate);
 
@@ -201,8 +201,9 @@ public class AddTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
+        //Log.d("mobileNumber",mobileNumber);
         //int hourNotification=mHour.getTex;
-        sendSMS(mobileNumber,description,1);
+        sendSMS(mobileNumber,description,4);
         final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
