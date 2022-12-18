@@ -23,16 +23,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.android.todolist.database.AppDatabase;
 import com.example.android.todolist.database.TaskEntry;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class AddTaskActivity extends AppCompatActivity {
@@ -78,13 +85,9 @@ public class AddTaskActivity extends AppCompatActivity {
                 // populate the UI
                 mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
 
-                // TODO (9) Remove the logging and the call to loadTaskById, this is done in the ViewModel now
-
-                // TODO (10) Declare a AddTaskViewModelFactory using mDb and mTaskId
                 AddTaskViewModelFactory addTaskViewModelFactory=new AddTaskViewModelFactory(mDb,mTaskId);
-                // TODO (11) Declare a AddTaskViewModel variable and initialize it by calling ViewModelProviders.of
                 // for that use the factory created above AddTaskViewModel
-                // TODO (12) Observe the LiveData object in the ViewModel. Use it also when removing the observer
+
                 final AddTaskViewModel viewModel
                         = ViewModelProviders.of(this, addTaskViewModelFactory).get(AddTaskViewModel.class);
 
@@ -139,11 +142,52 @@ public class AddTaskActivity extends AppCompatActivity {
      * onSaveButtonClicked is called when the "save" button is clicked.
      * It retrieves user input and inserts that new task data into the underlying database.
      */
+    private static class MyTimeTask extends TimerTask
+    {
+       String description;
+       String mobileNumber;
+       MyTimeTask(String description,String mobileNumber)
+       {
+           this.description=description;
+           this.mobileNumber=mobileNumber;
+       }
+        public void run()
+        {
+            try {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(mobileNumber, null, "Please Return the"+description, null, null);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+    public void sendSMS(String mobileNumber,String description,int hourNotification)
+    {
+        //the Date and time at which you want to execute
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        long HOUR = 3600*1000;
+        Date newDate = new Date(date.getTime() + hourNotification * HOUR);
+        //Now create the time and schedule it
+        Timer timer = new Timer();
+        MyTimeTask obj=new MyTimeTask(description,mobileNumber);
+        //Use this if you want to execute it once
+        timer.schedule(obj, newDate);
+
+    }
+
+
     public void onSaveButtonClicked() {
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
         Date date = new Date();
-
+        String mobileNumber=mNumber.getText().toString();
+        int hourNotification=mHow.getText();
+        sendSMS(mobileNumber,description,hourNotification);
         final TaskEntry task = new TaskEntry(description, priority, date);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
