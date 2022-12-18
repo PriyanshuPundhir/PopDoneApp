@@ -16,9 +16,12 @@
 
 package com.example.android.todolist;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -57,10 +60,9 @@ public class AddTaskActivity extends AppCompatActivity {
     // Constant for logging
     private static final String TAG = AddTaskActivity.class.getSimpleName();
     // Fields for views
-    EditText mEditText;
+    EditText mEditText,mNumber,mHour,mName1,mName2;
     RadioGroup mRadioGroup;
     Button mButton;
-
     private int mTaskId = DEFAULT_TASK_ID;
 
     // Member variable for the Database
@@ -114,8 +116,11 @@ public class AddTaskActivity extends AppCompatActivity {
     private void initViews() {
         mEditText = findViewById(R.id.editTextTaskDescription);
         mRadioGroup = findViewById(R.id.radioGroup);
-
+        mNumber=findViewById(R.id.editTextTime);
+        mHour=findViewById(R.id.editTextMobNo);
         mButton = findViewById(R.id.saveButton);
+        mName1=findViewById(R.id.editTextName1);
+        mName2=findViewById(R.id.editTextName2);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,6 +181,16 @@ public class AddTaskActivity extends AppCompatActivity {
         Timer timer = new Timer();
         MyTimeTask obj=new MyTimeTask(description,mobileNumber);
         //Use this if you want to execute it once
+        PendingIntent pendingIntent;
+        AlarmManager manager;
+
+        Intent alarmIntent = new Intent(this, AlarmReciever.class);
+        alarmIntent.putExtra("number", mobileNumber);
+        alarmIntent.putExtra("desc",description);
+        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        int interval = 1000;
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
         timer.schedule(obj, newDate);
 
     }
@@ -186,9 +201,9 @@ public class AddTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
-        int hourNotification=mHow.getText();
-        sendSMS(mobileNumber,description,hourNotification);
-        final TaskEntry task = new TaskEntry(description, priority, date);
+        //int hourNotification=mHour.getTex;
+        sendSMS(mobileNumber,description,1);
+        final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
