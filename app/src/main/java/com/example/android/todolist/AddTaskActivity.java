@@ -55,6 +55,12 @@ public class AddTaskActivity extends AppCompatActivity {
     public static final int PRIORITY_HIGH = 1;
     public static final int PRIORITY_MEDIUM = 2;
     public static final int PRIORITY_LOW = 3;
+
+    public static String mobileNumberGlobal="";
+    public static String descrptionGlobal="";
+    public static String Name1Global="";
+    public static String Name2Global="";
+
     // Constant for default task id to be used when not in update mode
     private static final int DEFAULT_TASK_ID = -1;
     // Constant for logging
@@ -150,52 +156,21 @@ public class AddTaskActivity extends AppCompatActivity {
      * onSaveButtonClicked is called when the "save" button is clicked.
      * It retrieves user input and inserts that new task data into the underlying database.
      */
-    private static class MyTimeTask extends TimerTask
-    {
-       String description;
-       String mobileNumber;
-       MyTimeTask(String description,String mobileNumber)
-       {
-           this.description=description;
-           this.mobileNumber=mobileNumber;
-       }
-        public void run()
-        {
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(mobileNumber, null, "Please Return the"+description, null, null);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-
-
 
     public void sendSMS(String mobileNumber,String description,int hourNotification)
     {
-        //the Date and time at which you want to execute
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        long HOUR = 3600*1000;
-        Date newDate = new Date(date.getTime() + hourNotification * HOUR);
-        //Now create the time and schedule it
-        Timer timer = new Timer();
-        MyTimeTask obj=new MyTimeTask(description,mobileNumber);
         //Use this if you want to execute it once
         PendingIntent pendingIntent;
         AlarmManager manager;
-
+        mobileNumberGlobal=mobileNumber;
+        Name1Global=mName1.getText().toString();
+        Name2Global=mName2.getText().toString();
+        descrptionGlobal=description;
         Intent alarmIntent = new Intent(this, AlarmReciever.class);
-        alarmIntent.putExtra("number", mobileNumber);
-        alarmIntent.putExtra("desc",description);
-        alarmIntent.putExtra("Name2",mName2.getText());
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         int interval = 200;
         manager.set(AlarmManager.RTC_WAKEUP, interval, pendingIntent);
-        timer.schedule(obj, newDate);
 
     }
 
@@ -205,7 +180,7 @@ public class AddTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
-        Log.d("mobileNumber",mobileNumber);
+        //Log.d("mobileNumber",mobileNumber);
         int hourNotification=Integer.parseInt(mHour.getText().toString());
         sendSMS(mobileNumber,description,hourNotification);
         final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date,hourNotification);
