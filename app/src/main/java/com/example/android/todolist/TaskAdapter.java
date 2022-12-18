@@ -84,12 +84,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         // Determine the values of the wanted data
         TaskEntry taskEntry = mTaskEntries.get(position);
         String description = taskEntry.getDescription();
+        String name1 = taskEntry.getName1();
+        String name2 = taskEntry.getName2();
         int priority = taskEntry.getPriority();
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
         //Set values
         holder.taskDescriptionView.setText(description);
         holder.updatedAtView.setText(updatedAt);
+        holder.name1.setText(name1+" to ");
+        holder.name2.setText(name2);
 
 
         // Programmatically set the text and color for the priority TextView
@@ -158,6 +162,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         // Class variables for the task description and priority TextViews
         TextView taskDescriptionView;
+        TextView name1;
+        TextView name2;
         TextView updatedAtView;
         TextView priorityView;
 
@@ -170,6 +176,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             super(itemView);
 
             taskDescriptionView = itemView.findViewById(R.id.taskDescription);
+            name1 = itemView.findViewById(R.id.name1);
+            name2 = itemView.findViewById(R.id.name2);
             updatedAtView = itemView.findViewById(R.id.taskUpdatedAt);
             priorityView = itemView.findViewById(R.id.priorityTextView);
             itemView.setOnClickListener(this);

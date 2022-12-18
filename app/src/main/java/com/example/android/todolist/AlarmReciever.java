@@ -33,8 +33,9 @@ public class AlarmReciever extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         String mobileNumber=intent.getStringExtra("number");
-        Log.d("mobileNumber",mobileNumber);
+        //Log.d("mobileNumber",mobileNumber);
         String description=intent.getStringExtra("desc");
+        String name = intent.getStringExtra("Name2");
 //        NotificationCompat.Builder b = new NotificationCompat.Builder(context, "CHANNEL_ID")
 //                .setSmallIcon(R.drawable.priority_circle)
 //                .setContentTitle("Show It")
@@ -55,12 +56,10 @@ public class AlarmReciever extends BroadcastReceiver
         }
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,WATER_REMINDER_NOTIFICATION_CHANNEL_ID)
                 .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                .setSmallIcon(R.drawable.ic_drink_notification)
+                .setSmallIcon(R.drawable.white)
                 .setLargeIcon(largeIcon(context))
-                .setContentTitle("Notification")
-                .setContentText("Reminder sent")
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(
-                        context.getString(R.string.edit_task_description)))
+                .setContentTitle("Reminder")
+                .setContentText("Please return back "+description+" to "+name)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
@@ -72,7 +71,7 @@ public class AlarmReciever extends BroadcastReceiver
         notificationManager.notify(WATER_REMINDER_NOTIFICATION_ID, notificationBuilder.build());
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(mobileNumber, null, "Please Return the", null, null);
+            smsManager.sendTextMessage(mobileNumber, null, "Please Return "+description+" to "+name, null, null);
 
             Toast.makeText(context, "try", Toast.LENGTH_SHORT).show();
 
@@ -93,7 +92,7 @@ public class AlarmReciever extends BroadcastReceiver
     }
     private static Bitmap largeIcon(Context context) {
         Resources res = context.getResources();
-        Bitmap largeIcon = BitmapFactory.decodeResource(res, R.drawable.ic_drink_notification);
+        Bitmap largeIcon = BitmapFactory.decodeResource(res, R.drawable.white);
         return largeIcon;
     }
 }

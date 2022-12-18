@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">To-Do List</string>
+    <string name="app_name">PopDone</string>
     <string name="main_activity_name">All Tasks</string>
-    <string name="add_task_activity_name">Add a New Task</string>
+    <string name="add_task_activity_name">Fill all the details</string>
 
     <!-- Strings for MainActivity -->
     <string name="priority_1">1</string>
@@ -10,11 +10,11 @@
 
     <!-- Strings for AddTaskActivity -->
     <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
-    <string name="edit_task_description">Describe your taskEntry&#8230;</string>
-    <string name="Name1">Enter Your Name</string>
-    <string name="Name2">Enter The Name of other person </string>
+    <string name="edit_task_description">Give Back that item to him</string>
+    <string name="Name1">Enter your Name</string>
+    <string name="Name2">Enter their Name  </string>
     <string name="Product_details">Product description</string>
-    <string name="Mobile_number">Mobile Number of the Person</string>
+    <string name="Mobile_number">Mobile Number</string>
     <string name="Time">Time in Hrs</string>
     <string name="priority_string">Priority</string>
 
