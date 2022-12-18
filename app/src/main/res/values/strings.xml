@@ -11,6 +11,11 @@
     <!-- Strings for AddTaskActivity -->
     <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
     <string name="edit_task_description">Describe your taskEntry&#8230;</string>
+    <string name="Name1">Enter Your Name</string>
+    <string name="Name2">Enter The Name of other person </string>
+    <string name="Product_details">Product description</string>
+    <string name="Mobile_number">Mobile Number of the Person</string>
+    <string name="Time">Time in Hrs</string>
     <string name="priority_string">Priority</string>
 
     <string name="high_priority">High</string>
