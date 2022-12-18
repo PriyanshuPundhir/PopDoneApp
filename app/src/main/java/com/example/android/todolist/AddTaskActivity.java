@@ -117,7 +117,7 @@ public class AddTaskActivity extends AppCompatActivity {
         mEditText = findViewById(R.id.editTextTaskDescription);
         mRadioGroup = findViewById(R.id.radioGroup);
         mNumber=findViewById(R.id.editTextMobNo);
-        mHour=findViewById(R.id.editTextMobNo);
+        mHour=findViewById(R.id.editTextTime);
         mButton = findViewById(R.id.saveButton);
         mName1=findViewById(R.id.editTextName1);
         mName2=findViewById(R.id.editTextName2);
@@ -189,8 +189,8 @@ public class AddTaskActivity extends AppCompatActivity {
         alarmIntent.putExtra("desc",description);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 200;
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        int interval = 100*hourNotification;
+        manager.set(AlarmManager.RTC_WAKEUP, interval, pendingIntent);
         timer.schedule(obj, newDate);
 
     }
@@ -202,9 +202,9 @@ public class AddTaskActivity extends AppCompatActivity {
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
         //Log.d("mobileNumber",mobileNumber);
-        //int hourNotification=mHour.getTex;
-        sendSMS(mobileNumber,description,4);
-        final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date);
+        int hourNotification=Integer.parseInt(mHour.getText().toString());
+        sendSMS(mobileNumber,description,hourNotification);
+        final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date,hourNotification);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
             public void run() {
