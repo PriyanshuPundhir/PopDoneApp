@@ -57,10 +57,10 @@ public class AlarmReciever extends BroadcastReceiver
         }
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,WATER_REMINDER_NOTIFICATION_CHANNEL_ID)
                 .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                .setSmallIcon(R.drawable.white)
+                .setSmallIcon(R.drawable.msgg)
                 .setLargeIcon(largeIcon(context))
                 .setContentTitle("Reminder")
-                .setContentText("Take "+description+"from"+name2)
+                .setContentText("Take "+description+" from "+name2)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
@@ -74,11 +74,11 @@ public class AlarmReciever extends BroadcastReceiver
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(mobileNumber, null, "Please Return "+description+" to "+name1, null, null);
 
-            Toast.makeText(context, "try", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Message Sent", Toast.LENGTH_SHORT).show();
 
         } catch (Exception ex) {
             ex.printStackTrace();
-            Toast.makeText(context, "Catch", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Unknown Error occurred", Toast.LENGTH_SHORT).show();
         }
     //    Toast.makeText(context, "I'm running", Toast.LENGTH_SHORT).show();
 
@@ -93,7 +93,7 @@ public class AlarmReciever extends BroadcastReceiver
     }
     private static Bitmap largeIcon(Context context) {
         Resources res = context.getResources();
-        Bitmap largeIcon = BitmapFactory.decodeResource(res, R.drawable.white);
+        Bitmap largeIcon = BitmapFactory.decodeResource(res, R.drawable.msgg);
         return largeIcon;
     }
 }
