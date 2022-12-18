@@ -23,25 +23,25 @@ public class TaskEntry {
     private String name2;
     @ColumnInfo(name = "Product_Description")
     private String product;
-   // @ColumnInfo(name = "Time")
-    //private int time;
+    @ColumnInfo(name = "Time")
+    private int time;
 
     @ColumnInfo(name = "updated_at")
     private Date updatedAt;
 
     @Ignore
-    public TaskEntry(String description,String name1,String name2,String mobileNo, int priority, Date updatedAt) {
+    public TaskEntry(String description,String name1,String name2,String mobileNo, int priority, Date updatedAt,int time) {
         this.description = description;
         this.priority = priority;
         this.updatedAt = updatedAt;
         this.name1 = name1;
         this.name2 = name2;
         this.mobileNo = mobileNo;
-        //this.time = time;
+        this.time = time;
     }
 
     public TaskEntry(int id, String description,String name1,String name2,String mobileNo,
-                     int priority, Date updatedAt) {
+                     int priority, Date updatedAt,int time) {
         this.id = id;
         this.description = description;
         this.priority = priority;
@@ -49,7 +49,7 @@ public class TaskEntry {
         this.name1 = name1;
         this.name2 = name2;
         this.mobileNo = mobileNo;
-        //this.time = time;
+        this.time = time;
     }
 
     public int getId() {
@@ -116,11 +116,11 @@ public class TaskEntry {
         this.product = product;
     }
 
-//    public int getTime() {
-//        return time;
-//    }
-//
-//    public void setTime(int time) {
-//        this.time = time;
-//    }
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+   }
 }
