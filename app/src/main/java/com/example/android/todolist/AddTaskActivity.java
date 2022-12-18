@@ -190,6 +190,7 @@ public class AddTaskActivity extends AppCompatActivity {
         Intent alarmIntent = new Intent(this, AlarmReciever.class);
         alarmIntent.putExtra("number", mobileNumber);
         alarmIntent.putExtra("desc",description);
+        alarmIntent.putExtra("Name2",mName2.getText());
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         int interval = 200;
@@ -204,7 +205,7 @@ public class AddTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
-        //Log.d("mobileNumber",mobileNumber);
+        Log.d("mobileNumber",mobileNumber);
         int hourNotification=Integer.parseInt(mHour.getText().toString());
         sendSMS(mobileNumber,description,hourNotification);
         final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date,hourNotification);

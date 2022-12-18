@@ -14,6 +14,15 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <!-- EditText for getttaskEntrytask description input -->
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Please enter Product name"
+        android:textColor="@android:color/primary_text_light" />
     <EditText
         android:id="@+id/editTextTaskDescription"
         android:layout_width="match_parent"
@@ -21,6 +30,15 @@
         android:gravity="start"
         android:hint="@string/Product_details"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Please enter your name"
+        android:textColor="@android:color/primary_text_light" />
     <EditText
         android:id="@+id/editTextName1"
         android:layout_width="match_parent"
@@ -28,6 +46,16 @@
         android:gravity="start"
         android:hint="@string/Name1"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Please enter the name of the person to whom you are lending this product"
+        android:textColor="@android:color/primary_text_light" />
+
     <EditText
         android:id="@+id/editTextName2"
         android:layout_width="match_parent"
@@ -35,6 +63,16 @@
         android:gravity="start"
         android:hint="@string/Name2"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Please enter their Mobile Number"
+        android:textColor="@android:color/primary_text_light" />
+
 
     <EditText
         android:id="@+id/editTextMobNo"
@@ -43,6 +81,15 @@
         android:gravity="start"
         android:hint="@string/Mobile_number"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Please enter Duration"
+        android:textColor="@android:color/primary_text_light" />
 
     <EditText
         android:id="@+id/editTextTime"
