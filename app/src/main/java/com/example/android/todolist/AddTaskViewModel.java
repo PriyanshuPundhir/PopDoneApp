@@ -1,12 +1,11 @@
 package com.example.android.todolist;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.example.android.todolist.database.AppDatabase;
 import com.example.android.todolist.database.TaskEntry;
-
-import java.util.List;
 
 // TODO (5) Make this class extend ViewModel
 public class AddTaskViewModel extends ViewModel
