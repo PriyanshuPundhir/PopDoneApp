@@ -16,6 +16,12 @@ android {
             minifyEnabled false
         }
     }
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
 }
 
 dependencies {
@@ -30,11 +36,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'androidx.room:room-runtime:2.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     annotationProcessor 'androidx.room:room-compiler:2.0.0'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
-
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
     // Testing
     // Instrumentation dependencies use androidTestImplementation
