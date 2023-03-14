@@ -2,7 +2,6 @@ package com.example.android.todolist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +14,6 @@ import java.util.TimerTask;
 public class Introduction extends AppCompatActivity {
 
     Timer timer;
-    ImageView bg;
     LottieAnimationView lottieAnimationView;
 
     @Override
@@ -32,8 +30,6 @@ public class Introduction extends AppCompatActivity {
                 finish();
             }
         }, 3000);
-
-        bg = findViewById(R.id.imgbg);
         lottieAnimationView = findViewById(R.id.animation);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(4000);
 
