@@ -20,7 +20,7 @@ public class Introduction extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
-
+        getSupportActionBar().hide();
         timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
