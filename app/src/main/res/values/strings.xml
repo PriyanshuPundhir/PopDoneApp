@@ -24,5 +24,17 @@
 
     <string name="add_button">Add</string>
     <string name="update_button">Update</string>
-
+    <string name="fillAllDetails">Please Fill All Required Details</string>
+    <string name="returnPlease">Please Return</string>
+    <string name="to">" to "</string>
+    <string name="messageSent">Message Sent !</string>
+    <string name="reminderService">Reminder Service</string>
+    <string name="reminder">reminder</string>
+    <string name="take">Take </string>
+    <string name="from">from </string>
+    <string name="enterProductName">Please enter Product name</string>
+    <string name="enterName">Please enter your name</string>
+    <string name="enterRecieverName">Please enter receiver\'s name</string>
+    <string name="enterMobileNumber">Please enter their Mobile Number(10 Digit)</string>
+    <string name="enterDuration">Please enter Duration</string>
 </resources>

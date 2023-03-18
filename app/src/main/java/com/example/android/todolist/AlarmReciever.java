@@ -55,12 +55,13 @@ public class AlarmReciever extends BroadcastReceiver
                     NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
         }
+
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,WATER_REMINDER_NOTIFICATION_CHANNEL_ID)
                 .setColor(ContextCompat.getColor(context, R.color.colorPrimary))
                 .setSmallIcon(R.drawable.msgg)
                 .setLargeIcon(largeIcon(context))
                 .setContentTitle("Reminder")
-                .setContentText("Take "+description+" from "+name2)
+                .setContentText(context.getString(R.string.take)+" "+description+" "+context.getString(R.string.from)+" "+name2)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
@@ -72,15 +73,14 @@ public class AlarmReciever extends BroadcastReceiver
         notificationManager.notify(WATER_REMINDER_NOTIFICATION_ID, notificationBuilder.build());
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(mobileNumber, null, "Please Return "+description+" to "+name1, null, null);
+            smsManager.sendTextMessage(mobileNumber, null, context.getString(R.string.returnPlease) +" "+description+" "+context.getString(R.string.to)+" " +name1, null, null);
 
-            Toast.makeText(context, "Message Sent", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.messageSent, Toast.LENGTH_SHORT).show();
 
         } catch (Exception ex) {
             ex.printStackTrace();
             Toast.makeText(context, "Unknown Error occurred", Toast.LENGTH_SHORT).show();
         }
-    //    Toast.makeText(context, "I'm running", Toast.LENGTH_SHORT).show();
 
     }
     private static PendingIntent contentIntent(Context context) {
@@ -89,7 +89,7 @@ public class AlarmReciever extends BroadcastReceiver
                 context,
                 WATER_REMINDER_PENDING_INTENT_ID,
                 startActivityIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent.FLAG_MUTABLE);
     }
     private static Bitmap largeIcon(Context context) {
         Resources res = context.getResources();

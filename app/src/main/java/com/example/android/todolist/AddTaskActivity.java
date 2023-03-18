@@ -18,19 +18,23 @@ package com.example.android.todolist;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.example.android.todolist.database.AppDatabase;
 import com.example.android.todolist.database.TaskEntry;
+
 import java.util.Date;
 
 
@@ -119,6 +123,9 @@ public class AddTaskActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mEditText.getText().toString()=="" || mName1.getText().toString()=="" || mName2.getText().toString()=="" || mNumber.getText().toString()=="" || mHour.getText().toString().matches(""))
+                    Toast.makeText(AddTaskActivity.this, R.string.fillAllDetails, Toast.LENGTH_SHORT).show();
+                else
                 onSaveButtonClicked();
             }
         });
@@ -156,7 +163,7 @@ public class AddTaskActivity extends AppCompatActivity {
         Name2Global=mName2.getText().toString();
         descrptionGlobal=description;
         Intent alarmIntent = new Intent(this, AlarmReciever.class);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_MUTABLE);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         int interval = 200;
         manager.set(AlarmManager.RTC_WAKEUP, interval, pendingIntent);
@@ -170,6 +177,7 @@ public class AddTaskActivity extends AppCompatActivity {
         Date date = new Date();
         String mobileNumber=mNumber.getText().toString();
         //Log.d("mobileNumber",mobileNumber);
+
         int hourNotification=Integer.parseInt(mHour.getText().toString());
         sendSMS(mobileNumber,description,hourNotification);
         final TaskEntry task = new TaskEntry(description,mName1.getText().toString(),mName2.getText().toString(),mobileNumber,priority,date,hourNotification);

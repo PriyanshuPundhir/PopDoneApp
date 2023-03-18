@@ -93,7 +93,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         //Set values
         holder.taskDescriptionView.setText(description);
         holder.updatedAtView.setText(updatedAt);
-        holder.name1.setText(name1+" to ");
+        holder.name1.setText(name1+mContext.getString(R.string.to));
         holder.name2.setText(name2);
 
 
