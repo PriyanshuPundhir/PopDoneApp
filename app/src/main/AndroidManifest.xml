@@ -21,7 +21,9 @@
             android:name=".MainActivity"
             android:exported="false" />
 
-        <receiver android:name=".AlarmReciever">
+        <receiver android:name=".AlarmReciever"
+            android:exported="false"
+            >
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

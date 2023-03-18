@@ -26,7 +26,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Please enter Product name"
+        android:text="@string/enterProductName"
         android:textColor="@android:color/primary_text_light" />
     <EditText
         android:id="@+id/editTextTaskDescription"
@@ -42,14 +42,14 @@
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Please enter your name"
+        android:text="@string/enterName"
         android:textColor="@android:color/primary_text_light" />
     <EditText
         android:id="@+id/editTextName1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:hint="@string/Name1"
+        android:hint="@string/enterName"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
     <TextView
         style="@style/TextAppearance.AppCompat.Medium"
@@ -58,7 +58,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Please enter receiver's name"
+        android:text="@string/enterRecieverName"
         android:textColor="@android:color/primary_text_light" />
 
     <EditText
@@ -75,7 +75,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Please enter their Mobile Number"
+        android:text="@string/enterMobileNumber"
         android:textColor="@android:color/primary_text_light" />
 
 
@@ -83,6 +83,7 @@
         android:id="@+id/editTextMobNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:gravity="start"
         android:hint="@string/Mobile_number"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
@@ -93,7 +94,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="Please enter Duration"
+        android:text="@string/enterDuration"
         android:textColor="@android:color/primary_text_light" />
 
     <EditText

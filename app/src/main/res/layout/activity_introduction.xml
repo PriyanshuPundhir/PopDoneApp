@@ -24,7 +24,7 @@
         android:fontFamily="cursive"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Pop Done App"
+        android:text="@string/app_name"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

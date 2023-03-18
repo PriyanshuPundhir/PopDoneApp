@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">पॉपडोन</string>
+    <string name="main_activity_name">सभी कार्य</string>
+    <string name="add_task_activity_name">सभी विवरण भरें</string>
+    <!-- Strings for MainActivity -->
+    <string name="priority_1">1</string>
+    <string name="priority_2">2</string>
+    <string name="priority_3">3</string>
+    <!-- Strings for AddTaskActivity -->
+    <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
+    <string name="edit_task_description">वह उसे वापस दें</string>
+    <string name="Name1">अपना नाम दर्ज करें</string>
+    <string name="Name2">उनका नाम दर्ज करें </string>
+    <string name="Product_details">उत्पाद विवरण</string>
+    <string name="Mobile_number">मोबाइल नंबर</string>
+    <string name="Time">समय घंटों में</string>
+    <string name="priority_string">प्राथमिकता</string>
+
+    <string name="high_priority">उच्च</string>
+    <string name="med_priority">माध्यम</string>
+    <string name="low_priority">निम्न</string>
+
+    <string name="add_button">जोड़ें</string>
+    <string name="update_button">अद्यतन</string>
+    <string name="fillAllDetails">कृपया सभी आवश्यक विवरण भरें</string>
+    <string name="returnPlease">कृपया वापस करें</string>
+    <string name="to">को</string>
+    <string name="messageSent">संदेश भेजा जा चुका है</string>
+    <string name="reminderService">अनुस्मारक सेवा</string>
+    <string name="reminder">अनुस्मारक</string>
+    <string name="take">वापस ले </string>
+    <string name="from">जो दिया गया था-</string>
+    <string name="enterProductName">कृपया उत्पाद का नाम दर्ज करें</string>
+    <string name="enterName">कृपया अपना नाम दर्ज करें</string>
+    <string name="enterRecieverName">कृपया प्राप्तकर्ता का नाम दर्ज करें</string>
+    <string name="enterMobileNumber">कृपया उनका मोबाइल नंबर दर्ज करें</string>
+    <string name="enterDuration">कृपया अवधि दर्ज करें</string>
+</resources>
