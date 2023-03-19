@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PopDone</string>
+    <string name="main_activity_name">Todas las Tareas</string>
+    <string name="add_task_activity_name">Llenar todos los detalles</string>
+    <!-- Strings for MainActivity -->
+    <string name="priority_1">1</string>
+    <string name="priority_2">2</string>
+    <string name="priority_3">3</string>
+
+    <!-- Strings for AddTaskActivity -->
+    <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
+    <string name="edit_task_description">Devolver ese artículo a él</string>
+    <string name="Name1">Ingrese su nombre</string>
+    <string name="Name2">Ingrese su nombre  </string>
+    <string name="Product_details">Descripción del producto</string>
+    <string name="Mobile_number">Número de teléfono móvil</string>
+    <string name="Time">Tiempo en horas</string>
+    <string name="priority_string">Prioridad</string>
+
+    <string name="high_priority">Alta</string>
+    <string name="med_priority">Media</string>
+    <string name="low_priority">Baja</string>
+
+    <string name="add_button">Agregar</string>
+    <string name="update_button">Actualizar</string>
+    <string name="fillAllDetails">Por favor complete todos los detalles requeridos</string>
+    <string name="returnPlease">Por favor regrese</string>
+    <string name="to">" a "</string>
+    <string name="messageSent">Mensaje enviado !</string>
+    <string name="reminderService">Servicio de recordatorio</string>
+    <string name="reminder">recordatorio</string>
+    <string name="take">Tomar </string>
+    <string name="from">de </string>
+    <string name="enterProductName">Por favor ingrese el nombre del producto</string>
+    <string name="enterName">Por favor ingrese su nombre</string>
+    <string name="enterRecieverName">Por favor ingrese el nombre del receptor</string>
+    <string name="enterMobileNumber">Por favor ingrese su número de móvil (10 dígitos)</string>
+    <string name="enterDuration">Por favor ingrese la duración</string>
+
+</resources>
