@@ -56,7 +56,7 @@ public class CategoryAdapter  extends BaseAdapter {
             }
         });
 
-        ((TextView) view.findViewById(R.id.catName)).setText(R.string.reminderService);
+        ((TextView) view.findViewById(R.id.catName)).setText(cat_List.get(position).getName());
 
         return view;
     }

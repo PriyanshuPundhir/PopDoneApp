@@ -25,6 +25,6 @@ public class CategoryActivity extends AppCompatActivity {
 
     private void loadCategories() {
         catList.clear();//Here we can use firebase database also in order to fill these rows
-        catList.add(new CategoryModel("1","Reminder Service"));
+        catList.add(new CategoryModel("1",getString(R.string.reminderService)));
     }
 }
