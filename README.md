@@ -38,12 +38,16 @@ Flow Of Application:
 
 • Valid phone number is provided and user has proper network connection with enough sms plan service. output should be successful.
 
-  <img width="30%" src="screenshots/2.png" />
-   <img width="30%" src="screenshots/3.png" />
-    <img width="30%" src="screenshots/4.png" />
-     <img width="30%" src="screenshots/5.png" />
-      <img width="30%" src="screenshots/6.png" />
-       <img width="30%" src="screenshots/7.png" />
+<img width="80%" src="screenshots/featurepreview.jpeg" />
+<img width="30%" src="screenshots/9.jpeg" />
+<img width="30%" src="screenshots/8.jpeg" />
+<img width="30%" src="screenshots/3.jpeg" />
+<img width="30%" src="screenshots/2.jpeg" />
+<img width="30%" src="screenshots/10.jpeg" />
+<img width="30%" src="screenshots/7.png" />
+<img width="30%" src="screenshots/6.png" />
+
+<img width="50%" src="screenshots/1.png" />
 
 
 OPERATING ENVIRONMENT
