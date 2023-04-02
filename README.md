@@ -47,8 +47,6 @@ Flow Of Application:
 <img width="30%" src="screenshots/7.png" />
 <img width="30%" src="screenshots/6.png" />
 
-<img width="50%" src="screenshots/1.png" />
-
 
 OPERATING ENVIRONMENT
 -----------
