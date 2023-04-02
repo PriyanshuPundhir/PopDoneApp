@@ -165,9 +165,9 @@ public class AddTaskActivity extends AppCompatActivity {
         Intent alarmIntent = new Intent(this, AlarmReciever.class);
         pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_MUTABLE);
         manager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        int interval = 200;
-        manager.set(AlarmManager.RTC_WAKEUP, interval, pendingIntent);
-
+        int interval = hourNotification*60*60*1000;
+        manager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + (interval), pendingIntent);
     }
 
 

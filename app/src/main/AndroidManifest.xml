@@ -4,8 +4,6 @@
     package="com.example.android.todolist">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
 
     <application
         android:allowBackup="false"
@@ -24,9 +22,7 @@
         <receiver android:name=".AlarmReciever"
             android:exported="false"
             >
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
+
         </receiver> <!-- The manifest entry for the MainActivity -->
         <activity
             android:name=".Introduction"
