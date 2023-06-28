@@ -1,4 +1,4 @@
-# Pop Done App:
+# Pop Done App:-
 
 PopDone is an offline application that allows user to store details of an object that we are lending other people and notify them after a certain time interval to return it, we can store details of the person who is lending the object and also the person who is taking it then we will take time as an input and after that time interval we can send a notification to the user in order to remind it.
 
